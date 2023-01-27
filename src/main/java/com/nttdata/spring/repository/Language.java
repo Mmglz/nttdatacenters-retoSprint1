@@ -34,7 +34,7 @@ public class Language implements Serializable {
 	 * @return the languageId
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	public Long getLanguageId() {
 		return languageId;

@@ -1,5 +1,7 @@
 package com.nttdata.spring;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +18,9 @@ import java.util.List;
  */
 @SpringBootApplication
 public class Main implements CommandLineRunner{
+	
+	/** LOGGER **/
+	private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 	
 	/** Servicio de idioma. **/
 	@Autowired
@@ -35,6 +40,10 @@ public class Main implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
+		LOG.info("TRAZA DE INICIO");
+		
+		LOG.info("Inicio generación de idiomas");
+		
 		// Creación de idiomas
 		Language l1 = new Language();
 		l1.setName("ES");
@@ -52,18 +61,29 @@ public class Main implements CommandLineRunner{
 		l4.setName("PT");
 		l4.setMessage("OLÁ MUNDO!");
 		
+		LOG.info("Fin generación de idiomas");
+
+		LOG.info("Inicio inserciones de idiomas");
+		
 		// Inserciones de idiomas
 		languageService.createNewLanguage(l1);
 		languageService.createNewLanguage(l2);
 		languageService.createNewLanguage(l3);
 		languageService.createNewLanguage(l4);
 		
+		LOG.info("Fin inserciones de idiomas");
+
+		LOG.info("Inicio del listado de todos los idiomas");
 		
 		// Lista todos los idiomas
 		final List<Language> allLanguages = languageService.serachAll();
 		for (final Language l : allLanguages) {
 			System.out.println(l.toString());
 		}
+		
+		LOG.info("Fin del listado de todos los idiomas");
+		
+		LOG.info("TRAZA FIN");
 	}
 
 }

@@ -61,6 +61,20 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 			<version>3.1.1</version>
 		</dependency>
+		
+		<!-- Dependencias de Logback -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<!-- Compilado del proyecto -->
